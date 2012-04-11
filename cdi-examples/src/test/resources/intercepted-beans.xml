@@ -1,0 +1,5 @@
+<beans>
+    <interceptors>
+        <class>pl.softwaremill.asamal.presentation.interceptor.MouthSoupInterceptor</class>
+    </interceptors>
+</beans>
