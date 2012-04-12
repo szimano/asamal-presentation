@@ -27,5 +27,6 @@
     <modules>
         <module>cdi-examples</module>
         <module>jaxrs-examples</module>
+	<module>devCrowd</module>
     </modules>
 </project>

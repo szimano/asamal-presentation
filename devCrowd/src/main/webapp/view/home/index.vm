@@ -1,0 +1,34 @@
+#layout('default')
+
+#region('content')
+    <h1>Welcome to home!</h1>
+
+    <h2>You have successfully created your Asamal Bootstrap</h2>
+
+    <div id="tweetList">
+        <ul>
+            #{foreach}($tweet in $tweets)
+                <li>$tweet.msg on $tweet.date</li>
+            #{end}
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        function reloadTweets() {
+            $tag.reRender('home', 'reload', '""', '"tweetList"');
+        }
+
+        $(document).ready(function() {
+            setInterval(reloadTweets, 2000);
+        });
+    </script>
+
+    <form action="$tag.formAction('home', 'addTweet')" method="post" id="tweetForm">
+        <label>Tweet Text</label>
+        <textarea rows="10" cols="30" name="tweet.msg">
+            $!c.tweet.msg
+        </textarea>
+        #err("tweet.msg")
+        <input type="submit" value="Add"/>
+    </form>
+#end
