@@ -13,6 +13,9 @@ import javax.ws.rs.core.MediaType;
 @Path("/")
 public class JSON {
 
+    /*
+       try also "text/x-yaml"
+     */
     @GET
     @Path("/user/{name}")
     @Produces(MediaType.APPLICATION_JSON)
