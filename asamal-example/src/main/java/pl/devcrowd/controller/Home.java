@@ -55,6 +55,9 @@ public class Home extends ControllerBean implements Serializable {
         }
         else {
             addMessageToFlash("Validation errors", AsamalContext.MessageSeverity.ERR);
+
+            index();
+
             includeView("index");
         }
     }
