@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pl.devcrowd</groupId>
-    <artifactId>devCrowd</artifactId>
+    <groupId>pl.example</groupId>
+    <artifactId>asamal-example</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>devCrowd</name>
+    <name>asamal-example</name>
     <url>http://asamal.org</url>
     <packaging>war</packaging>
 

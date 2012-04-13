@@ -27,6 +27,6 @@
     <modules>
         <module>cdi-examples</module>
         <module>jaxrs-examples</module>
-	<module>devCrowd</module>
+	    <module>asamal-example</module>
     </modules>
 </project>
