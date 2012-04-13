@@ -14,7 +14,7 @@ import pl.softwaremill.asamal.presentation.simple.DepBean;
 import javax.inject.Inject;
 
 @RunWith(Arquillian.class)
-public class ScopedCDI {
+public class TestScopedCDI {
 
     @Deployment
     public static JavaArchive createDeployment() {

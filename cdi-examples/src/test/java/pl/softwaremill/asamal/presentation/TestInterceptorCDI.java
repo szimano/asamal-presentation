@@ -8,43 +8,45 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pl.softwaremill.asamal.presentation.interceptor.MouthSoupInterceptor;
+import pl.softwaremill.asamal.presentation.interceptor.Twitter;
 import pl.softwaremill.asamal.presentation.simple.DepBean;
 
 import javax.inject.Inject;
+import java.util.Arrays;
 
 @RunWith(Arquillian.class)
-public class SimpleCDI{
+public class TestInterceptorCDI {
 
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addClass(DepBean.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addClass(Twitter.class)
+                .addClass(MouthSoupInterceptor.class)
+                .addAsManifestResource("intercepted-beans.xml", "beans.xml");
     }
 
     @Inject
     @Test
-    public void shouldUseDepBean(DepBean depBean) {
+    public void shouldPassGoodWords(Twitter twitter) {
         // given
-        Assert.assertEquals(depBean.getSomeString(), null);
 
         //when
-        depBean.setSomeString("foo");
+        twitter.tweet("Hello");
 
         //then
-        Assert.assertEquals(depBean.getSomeString(), "foo");
+        Assert.assertEquals(twitter.getMessages(), Arrays.asList("Hello"));
     }
 
     @Inject
     @Test
-    public void shouldUseDepBeanAgain(DepBean depBean) {
+    public void shouldCensorBadWords(Twitter twitter) {
         // given
-        Assert.assertEquals(depBean.getSomeString(), null);
 
         //when
-        depBean.setSomeString("bar");
+        twitter.tweet("motyla noga");
 
         //then
-        Assert.assertEquals(depBean.getSomeString(), "bar");
+        Assert.assertEquals(twitter.getMessages(), Arrays.asList("$%&#!!"));
     }
 }

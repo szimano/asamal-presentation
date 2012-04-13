@@ -8,44 +8,43 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import pl.softwaremill.asamal.presentation.producer.BeanProducer;
-import pl.softwaremill.asamal.presentation.scoped.DepBeanScoped;
+import pl.softwaremill.asamal.presentation.qualified.Blue;
+import pl.softwaremill.asamal.presentation.qualified.Green;
+import pl.softwaremill.asamal.presentation.qualified.Paint;
 
 import javax.inject.Inject;
 
 @RunWith(Arquillian.class)
-public class ProducerCDI {
+public class TestQualifiedCDI {
 
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addClass(BeanProducer.class)
+                .addPackage(Paint.class.getPackage())
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
-    @Test
     @Inject
-    public void shouldUseDepBean(DepBeanScoped depBean) {
+    @Test
+    public void shouldUseBluePaint(@Blue Paint paint) {
         // given
-        Assert.assertEquals(depBean.getAppScopedProperty(), null);
 
         //when
-        depBean.setAppScopedProperty("foo");
+        String colour = paint.getColour();
 
         //then
-        Assert.assertEquals(depBean.getAppScopedProperty(), "foo");
+        Assert.assertEquals(colour, "blue");
     }
 
-    @Test
     @Inject
-    public void shouldUseDepBeanAgain(DepBeanScoped depBean) {
+    @Test
+    public void shouldUseGreenPaint(@Green Paint paint) {
         // given
-        Assert.assertEquals(depBean.getAppScopedProperty(), null);
 
         //when
-        depBean.setAppScopedProperty("bar");
+        String colour = paint.getColour();
 
         //then
-        Assert.assertEquals(depBean.getAppScopedProperty(), "bar");
+        Assert.assertEquals(colour, "green");
     }
 }

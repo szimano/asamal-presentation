@@ -15,7 +15,7 @@ import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 
 @RunWith(Arquillian.class)
-public class InstanceCDI {
+public class TestInstanceCDI {
 
     @Deployment
     public static JavaArchive createDeployment() {
