@@ -1,8 +1,8 @@
 package pl.devcrowd.model;
 
-import com.sun.istack.internal.NotNull;
 import pl.softwaremill.common.cdi.validation.Length;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class Tweet {
