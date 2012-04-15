@@ -1,7 +1,7 @@
 Asamal - Lightweight framework on JEE6
 ======================================
 
-Full source code and slides for the "How to write webframework in a week" presentation by [http://szimano.org](Tomek Szymanski) on [http://asamal.org](Asamal).
+Full source code and slides for the "How to write webframework in a week" presentation by [Tomek Szymanski](http://szimano.org) on [Asamal](http://asamal.org).
 
 ## Structure
 
