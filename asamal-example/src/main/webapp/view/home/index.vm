@@ -15,7 +15,7 @@
 
     <script type="text/javascript">
         function reloadTweets() {
-            $tag.reRender('home', 'reload', '""', '"tweetList"');
+            $a.reRender('home', 'reload', '""', '"tweetList"');
         }
 
         $(document).ready(function() {
@@ -23,11 +23,9 @@
         });
     </script>
 
-    <form action="$tag.formAction('home', 'addTweet')" method="post" id="tweetForm">
+    <form action="$a.formAction('home', 'addTweet')" method="post" id="tweetForm">
         <label>Tweet Text</label>
-        <textarea rows="10" cols="30" name="tweet.msg">
-            $!c.tweet.msg
-        </textarea>
+        <textarea rows="10" cols="30" name="tweet.msg">$!c.tweet.msg</textarea>
         #err("tweet.msg")
         <input type="submit" value="Add"/>
     </form>
