@@ -9,7 +9,8 @@ import java.util.List;
 @MouthSoap @Interceptor
 public class MouthSoupInterceptor {
 
-    private final static List<String> BAD_WORDS = Arrays.asList("motyla noga", "kurka wodna", ".net");
+    private final static List<String> BAD_WORDS = Arrays.asList("motyla noga",
+            "kurka wodna", ".net");
 
     private final static String CENSOR = "$%&#!!";
 

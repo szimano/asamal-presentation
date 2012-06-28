@@ -15,7 +15,8 @@ public class HTTPParams {
 
     @GET
     @Path("/query/{id}")
-    public String parametrized(@PathParam("id") String id, @QueryParam("key") String value) {
+    public String parametrized(@PathParam("id") String id,
+                               @QueryParam("key") String value) {
         return "Got a paremeter: " + id + " with key = " + value;
     }
 

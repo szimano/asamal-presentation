@@ -19,13 +19,15 @@ public class Parametrized {
 
     @POST
     @Path("/two/params/{category}/{id}")
-    public String twoParams(@PathParam("category") String category, @PathParam("id") String id) {
+    public String twoParams(@PathParam("category") String category,
+                            @PathParam("id") String id) {
         return String.format("Got two parameters: %s and %s\n", category, id);
     }
 
     @GET
     @Path("/wild/{id}{sep:/?}{path:.*}")
-    public String wildcardParams(@PathParam("id") String id, @PathParam("path") String optionalPath) {
+    public String wildcardParams(@PathParam("id") String id,
+                                 @PathParam("path") String optionalPath) {
         return String.format("Got id: %s\nWith optional params: %s", id, optionalPath);
     }
 
