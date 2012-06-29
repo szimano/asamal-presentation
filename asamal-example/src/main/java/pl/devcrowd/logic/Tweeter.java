@@ -10,7 +10,7 @@ import java.util.List;
 @Singleton
 public class Tweeter {
 
-    private List<Tweet> tweets = new ArrayList<Tweet>();
+    private List<Tweet> tweets = Collections.synchronizedList(new ArrayList<Tweet>());
 
     public void addTweet(Tweet tweet) {
         tweets.add(tweet);
